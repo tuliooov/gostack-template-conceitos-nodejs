@@ -34,7 +34,7 @@ app.post('/repositories', (request, response) => {
   const repositorie = {id:uuid(), title, url, techs, likes: 0}
   repositories.push(repositorie)
 
-  return response.json(repositories)
+  return response.json(repositorie)
 })
 
 app.post('/repositories/:id/like', (request, response) => {
@@ -50,7 +50,7 @@ app.post('/repositories/:id/like', (request, response) => {
 
   repositories[repositorieIndex].likes++
 
-  return response.json(repositories[repositorieIndex])
+  return response.json(repositories)
 })
 
 app.put('/repositories/:id', validateProjetcId, (request, response) => {
