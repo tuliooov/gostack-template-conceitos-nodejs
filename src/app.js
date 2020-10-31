@@ -50,7 +50,7 @@ app.post('/repositories/:id/like', (request, response) => {
 
   repositories[repositorieIndex].likes++
 
-  return response.json(repositories)
+  return response.json(repositories[repositorieIndex])
 })
 
 app.put('/repositories/:id', validateProjetcId, (request, response) => {
@@ -82,7 +82,7 @@ app.delete('/repositories/:id', validateProjetcId, (request, response) => {
   const repositorieIndex = repositories.findIndex(repositorie => repositorie.id === id)
   if(repositorieIndex < 0){
       return response.status(400).json({
-          error: "Repositório não encontrado."
+          error: "Repository does not exist."
       })
   }
 
